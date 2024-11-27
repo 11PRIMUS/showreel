@@ -1,12 +1,13 @@
-//bot token
-var telegram_bot_id = "6270627679:AAHQv7iJq9MPGB6vXHekFo6K1kM4WNAeM-I";
-//chat id
-var chat_id = '7127263879';
+
+var telegram_bot_id = "7511275392:AAEUOY-_v3e5_bFza0p9RmMjrhwD_LB_5uQ"; 
+var chat_id = "1875555317";
+
 var u_name, email, message;
 var ready = function () {
     u_name = document.getElementById("name").value;
     email = document.getElementById("email").value;
     message = document.getElementById("message").value;
+
     message = "Name: " + u_name + "\nEmail: " + email + "\nMessage: " + message;
 };
 var sender = function () {
@@ -25,9 +26,17 @@ var sender = function () {
             "text": message
         })
     };
+
+   
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        console.log(response); 
+        alert("Message sent successfully!");
+    }).fail(function (error) {
+        console.error("Error:", error); 
+        alert("Failed to send the message. Please try again."); // Notify the user
     });
+
+   
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
